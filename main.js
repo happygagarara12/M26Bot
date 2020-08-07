@@ -2,7 +2,6 @@ const Discord = require("discord.js");
 const fetch = require("node-fetch");
 const querystring = require("querystring");
 const { stripIndents } = require("common-tags");
-const randomPuppy = require("random-puppy");
 const trim = (str, max) => str.length > max ? `${str.slice(0, max - 3)}...` : str;
 const client = new Discord.Client();
 const chooseArr = ["🗻", "📰", "✂"];
@@ -18,7 +17,7 @@ const Help = new Discord.MessageEmbed()
 const Commands = new Discord.MessageEmbed()
 .setColor("#0074ff")
 .setTitle("**Commands List:**")
-.setDescription(`**${prefix}help** \n - Get list of commands \n \n **${prefix}timetable** \n - Get the timetable \n \n **${prefix}homework** \n - Get list of homeworks \n \n **${prefix}urban <things to search>** \n - Search things using urban dicionary \n \n **${prefix}ping** \n - Get the bot latency (ping) \n \n **${prefix}rps** \n - Play Rock Paper Scissors with the bot \n \n **${prefix}lovemeter <@user1> <@user2>** \n - Calculates the love affinity user1 have for user2. \n \n **${prefix}clear <amount to clear>** \n - Clear the lastest message by amount \n \n **${prefix}meme** \n - Get a random meme \n \n **${prefix}instagram <username>** \n - Search for instagram accounts from the username \n \n **${prefix}whois <@user>** \n - Get information about the user`)
+.setDescription(`**${prefix}help** \n - Get list of commands \n \n **${prefix}timetable** \n - Get the timetable \n \n **${prefix}homework** \n - Get list of homeworks \n \n **${prefix}urban <things to search>** \n - Search things using urban dicionary \n \n **${prefix}ping** \n - Get the bot latency (ping) \n \n **${prefix}rps** \n - Play Rock Paper Scissors with the bot \n \n **${prefix}lovemeter <@user1> <@user2>** \n - Calculates the love affinity user1 have for user2. \n \n **${prefix}clear <amount to clear>** \n - Clear the lastest message by amount \n \n **${prefix}instagram <username>** \n - Search for instagram accounts from the username \n \n **${prefix}whois <@user>** \n - Get information about the user`)
 
 const Homeworks = new Discord.MessageEmbed()
 .setColor("#0074ff")
@@ -141,21 +140,6 @@ client.on("message", message =>{
                 .addField(`\n 💟 ${Math.floor(love)}% \n \n ${loveLevel}`);
     
             message.channel.send(embed);
-        } else if(command === "meme"){
-            async function run() {
-                const subReddits = ["dankmeme", "meme", "me_irl"];
-                const random = subReddits[Math.floor(Math.random() * subReddits.length)];
-        
-                const img = await randomPuppy(random);
-                const embed = new Discord.MessageEmbed()
-                    .setColor("RANDOM")
-                    .setImage(img)
-                    .setTitle(`From /r/${random}`)
-                    .setURL(`https://reddit.com/r/${random}`);
-        
-                message.channel.send(embed);
-            }
-            run();
         } else if(command === "clear"){
             if (isNaN(args[0]) || parseInt(args[0]) <= 0) {
                 return message.reply("Please provide an amout of message to delete!").then(m => m.delete(5000));
