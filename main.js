@@ -22,7 +22,7 @@ const Commands = new Discord.MessageEmbed()
 const Homeworks = new Discord.MessageEmbed()
 .setColor("#0074ff")
 .setTitle("**Homework:**")
-.setDescription(`**Math (CORE)** \n Page 71, Question 24 - 27, 45 - 56 \n Due: (**TOMORROW!**) Tuesday 4rd August 2020 (4/08/2020), 8:00 AM`)
+.setDescription(`**Math (EXTENDED)** \n Page 76 - 77 Question 17 - 59, Page 81 - 82 Question 16 - 54, Page 86 - 87 Question 17 - 57 \n Due: (**TOMORROW!**) Monday 10 August 2020 (10/08/2020), 11:20 AM (Period 4) \n \n **History** \n สมุดเล่มเล็ก \n Due: (**TOMORROW!**) Monday 10 August (10/08/2020), 1:00 PM (Period 6)`)
 
 client.once("ready", () => {
     console.log("M2/6 EP Special Bot is online!");
