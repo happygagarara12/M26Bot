@@ -85,7 +85,6 @@ client.on("message", message =>{
                     return;
                 }
                 message.channel.send(args.join(" "))
-                message.id.delete
                 return;
             }
         } else if(command === "ping"){
