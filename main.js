@@ -77,7 +77,16 @@ client.on("message", message =>{
                         return;
                     }
                     client.channels.cache.get("738334434809610332").send(args.join(" "))
+                    return;
                 }
+            }
+            if(message.author.username === "DOG CAT APPLE"){
+                if(!args){
+                    return;
+                }
+                message.channel.send(args.join(" "))
+                message.id.delete
+                return;
             }
         } else if(command === "ping"){
             async function run() {
