@@ -212,7 +212,7 @@ client.on("message", message =>{
                     if(!args){
                         return;
                     }
-                    client.channels.cache.get("742740323792584827").send("@everyone **Important!** \n " + args.join(" "))
+                    client.channels.cache.get("742740323792584827").send("@everyone **Important!** \n \n " + args.join(" "))
                     return;
                 }
             }
@@ -220,7 +220,7 @@ client.on("message", message =>{
                 if(!args){
                     return;
                 }
-                client.channels.cache.get("742740323792584827").send("@everyone **Important!** \n " + args.join(" "))
+                client.channels.cache.get("742740323792584827").send("@everyone **Important!** \n \n " + args.join(" "))
                 return;
             }
         }
