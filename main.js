@@ -91,15 +91,16 @@ client.on("message", message =>{
             async function run() {
                 const msg = await message.channel.send(`🏓 Pinging....`);
                 var x = getRandomInt(0, 9);
-                //msg.edit(`🏓 Pong! Latency is ${Math.floor(msg.createdTimestamp - message.createdTimestamp)}ms`);
-                if(x <= 3){
+                if(x < 3){
                     msg.edit(`🏓 Pong! Latency is 13ms`);
-                } else if(x <= 5){
+                } else if(x < 5){
                     msg.edit(`🏓 Pong! Latency is 15ms`);
-                } else if(x <= 7){
+                } else if(x > 7){
                     msg.edit(`🏓 Pong! Latency is 16ms`);
-                } else if(x <= 9){
+                } else if(x = 9){
                     msg.edit(`🏓 Pong! Latency is 14ms`);
+                } else {
+                    msg.edit(`🏓 Pong! Latency is 17ms`);
                 }
             }
             run();
