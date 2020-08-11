@@ -89,6 +89,9 @@ client.on("message", message =>{
             }
         } else if(command === "ping"){
             async function run() {
+                function getRandomInt(min, max) {
+                    return Math.random() * (max - min) + min;
+                }
                 var x = getRandomInt(0, 9);
                 if(x < 3){
                     const msg = await message.channel.send(`🏓 Pinging....`);
