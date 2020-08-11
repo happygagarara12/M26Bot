@@ -89,17 +89,21 @@ client.on("message", message =>{
             }
         } else if(command === "ping"){
             async function run() {
-                const msg = await message.channel.send(`🏓 Pinging....`);
                 var x = getRandomInt(0, 9);
                 if(x < 3){
+                    const msg = await message.channel.send(`🏓 Pinging....`);
                     msg.edit(`🏓 Pong! Latency is 13ms`);
                 } else if(x < 5){
+                    const msg = await message.channel.send(`🏓 Pinging....`);
                     msg.edit(`🏓 Pong! Latency is 15ms`);
                 } else if(x > 7){
+                    const msg = await message.channel.send(`🏓 Pinging....`);
                     msg.edit(`🏓 Pong! Latency is 16ms`);
                 } else if(x = 9){
+                    const msg = await message.channel.send(`🏓 Pinging....`);
                     msg.edit(`🏓 Pong! Latency is 14ms`);
                 } else {
+                    const msg = await message.channel.send(`🏓 Pinging....`);
                     msg.edit(`🏓 Pong! Latency is 17ms`);
                 }
             }
