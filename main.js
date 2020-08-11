@@ -5,7 +5,7 @@ const { stripIndents } = require("common-tags");
 const trim = (str, max) => str.length > max ? `${str.slice(0, max - 3)}...` : str;
 const client = new Discord.Client();
 const chooseArr = ["🗻", "📰", "✂"];
-const prefix = "omg ";
+const prefix = "hey siri ";
 
 var date = new Date();
 
