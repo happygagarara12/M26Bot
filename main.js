@@ -17,12 +17,12 @@ const Help = new Discord.MessageEmbed()
 const Commands = new Discord.MessageEmbed()
 .setColor("#0074ff")
 .setTitle("**Commands List:**")
-.setDescription(`**${prefix}help** \n - Get list of commands \n \n **${prefix}timetable** \n - Get the timetable \n \n **${prefix}homework** \n - Get list of homeworks \n \n **${prefix}urban <things to search>** \n - Search things using urban dicionary \n \n **${prefix}ping** \n - Get the bot latency (ping) \n \n **${prefix}rps** \n - Play Rock Paper Scissors with the bot \n \n **${prefix}lovemeter <@user1> <@user2>** \n - Calculates the love affinity user1 have for user2. \n \n **${prefix}clear <amount to clear>** \n - Clear the lastest message by amount \n \n **${prefix}instagram <username>** \n - Search for instagram accounts from the username \n \n **${prefix}whois <@user>** \n - Get information about the user`)
+.setDescription(`**${prefix}help** \n - Get list of commands \n \n **${prefix}timetable** \n - Get the timetable \n \n **${prefix}homework** \n - Get list of homeworks \n \n **${prefix}urban <things to search>** \n - Search things using urban dicionary \n \n **${prefix}ping** \n - Get the bot latency (ping) \n \n **${prefix}rps** \n - Play Rock Paper Scissors with the bot \n \n **${prefix}lovemeter <@user1> <@user2>** \n - Calculates the love affinity user1 have for user2. \n \n **${prefix}clear <amount to clear>** \n - Clear the lastest message by amount \n \n **${prefix}whois <@user>** \n - Get information about the user`)
 
 const Homeworks = new Discord.MessageEmbed()
 .setColor("#0074ff")
 .setTitle("**Homework:**")
-.setDescription(`No Homework! \n Yay!!!`)
+.setDescription(`**No Homework! \n Yay!!!**`)
 
 client.once("ready", () => {
     console.log("M2/6 EP Special Bot is online!");
@@ -206,44 +206,23 @@ client.on("message", message =>{
             if (member.user.presence.game) 
                 embed.addField('Currently playing', stripIndents`** Name:** ${member.user.presence.game.name}`);
             message.channel.send(embed);
-        } else if(command === "instagram"){
-            async function run() {
-                const name = args.join(" ");
-
-                if (!name) {
-                    return message.reply("Maybe it's useful to actually search for someone...!")
-                        .then(m => m.delete(5000));
+        } else if(command === "announce"){
+            if(message.channel.type === "dm"){
+                if(message.author.username === "DOG CAT APPLE"){
+                    if(!args){
+                        return;
+                    }
+                    client.channels.cache.get("742740323792584827").send("@everyone **Important!** \n " + args.join(" "))
+                    return;
                 }
-        
-                const url = `https://instagram.com/${name}/?__a=1`;
-                
-                let res; 
-        
-                try {
-                    res = await fetch(url).then(url => url.json());
-                } catch (e) {
-                    return message.reply("I couldn't find that account... :(")
-                        .then(m => m.delete(5000));
-                }
-        
-                const account = res.graphql.user;
-        
-                const embed = new Discord.MessageEmbed()
-                    .setColor("RANDOM")
-                    .setTitle(account.full_name)
-                    .setURL(`https://instagram.com/${name}`)
-                    .setThumbnail(account.profile_pic_url_hd)
-                    .addField("Profile information", stripIndents`**- Username:** ${account.username}
-                    **- Full name:** ${account.full_name}
-                    **- Biography:** ${account.biography.length == 0 ? "none" : account.biography}
-                    **- Posts:** ${account.edge_owner_to_timeline_media.count}
-                    **- Followers:** ${account.edge_followed_by.count}
-                    **- Following:** ${account.edge_follow.count}
-                    **- Private account:** ${account.is_private ? "Yes 🔐" : "Nope 🔓"}`);
-        
-                message.channel.send(embed);
             }
-            run();
+            if(message.author.username === "DOG CAT APPLE"){
+                if(!args){
+                    return;
+                }
+                client.channels.cache.get("742740323792584827").send("@everyone **Important!** \n " + args.join(" "))
+                return;
+            }
         }
     }
     catch (err) {
