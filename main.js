@@ -34,7 +34,7 @@ client.once("ready", () => {
 
 client.on("message", message =>{
     try{
-        if(!message.toLowerCase().startsWith(prefix)) return;
+        if(!message.content.toLowerCase().startsWith(prefix)) return;
         const args = message.content.slice(prefix.length).split(/ +/);
         const command = args.shift().toLowerCase();
         if(command === "help"){
