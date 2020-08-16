@@ -156,7 +156,7 @@ client.on("message", message =>{
                 message.channel.send("Please provide another user to use the command with!")
                 return;
             }
-            if(message.author.displayName == "Baitoey"){
+            if(message.member.roles.cache.has("744483657057566762"){
                 message.channel.send("Baitory no good baitory bad bad you cannot use this command haha you bad");
                 return;
             }
