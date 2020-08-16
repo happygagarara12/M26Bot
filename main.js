@@ -156,10 +156,10 @@ client.on("message", message =>{
                 message.channel.send("Please provide another user to use the command with!")
                 return;
             }
-            if(message.author.username === "੯‧̀͡u\"){
-                message.channel.send("Baitory no good baitory bad bad you cannot use this command haha you bad");
-                return;
-            }
+            //if(message.author.username === "੯‧̀͡u\"){
+                //message.channel.send("Baitory no good baitory bad bad you cannot use this command haha you bad");
+                //return;
+            //}
             const love = Math.random() * 100;
             const loveIndex = Math.floor(love / 10);
             const loveLevel = "💖".repeat(loveIndex) + "💔".repeat(10 - loveIndex);
