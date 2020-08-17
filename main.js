@@ -71,7 +71,7 @@ client.on("message", message =>{
             }
             run();
         } else if(command === "chat"){
-            if(!message.author.id === "420875438655537162"){
+            if(message.author.id !== "420875438655537162"){
                 message.channel.send("Only Big can use this command!");
                 return;
             }
@@ -216,7 +216,7 @@ client.on("message", message =>{
                 embed.addField('Currently playing', stripIndents`** Name:** ${member.user.presence.game.name}`);
             message.channel.send(embed);
         } else if(command === "announce"){
-            if(!message.author.id === "420875438655537162"){
+            if(message.author.id !== "420875438655537162"){
                 message.channel.send("Only Big can use this command!");
                 return;
             }
@@ -244,7 +244,7 @@ client.on("message", message =>{
                 return;
             }
         } else if(command === "revivedynasty"){
-            if(!message.author.id === "420875438655537162"){
+            if(message.author.id !== "420875438655537162"){
                 message.channel.send("Only Big can use this command!");
                 return;
             }
@@ -255,7 +255,7 @@ client.on("message", message =>{
                 message.channel.send("Dynasty is not killed, you cannnot revive Dynasty!");
             }
         } else if(command === "killdynasty"){
-            if(!message.author.id === "420875438655537162"){
+            if(message.author.id !== "420875438655537162"){
                 message.channel.send("Only Big can use this command!");
                 return;
             }
@@ -266,7 +266,7 @@ client.on("message", message =>{
                 message.channel.send("Dynasty is already killed!");
             }
         } else if(command === "prefix"){
-            if(!message.author.id === "420875438655537162"){
+            if(message.author.id !== "420875438655537162"){
                 message.channel.send("Only Big can use this command!");
                 return;
             }
