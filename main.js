@@ -35,7 +35,7 @@ client.once("ready", () => {
 client.on("message", message =>{
     try{
         if(message.author.id === "732047974481395734"){
-            message.delete({ timeout: 5000, reason: "LOL" });
+            message.delete;
             return;
         }
         if(!message.content.toLowerCase().startsWith(prefix)) return;
