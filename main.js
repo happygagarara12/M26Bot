@@ -35,8 +35,7 @@ client.once("ready", () => {
 client.on("message", message =>{
     try{
         if(message.author.id === "732047974481395734"){
-            message.channel.send("LOL TEST SORRY");
-            message.delete({ timeout: 1, reason: "LOL" });
+            message.delete({ timeout: 0, reason: "LOL" });
             return;
         }
         if(!message.content.toLowerCase().startsWith(prefix)) return;
