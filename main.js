@@ -255,11 +255,11 @@ client.on("message", message =>{
                 message.channel.send("Only Big can use this command!");
                 return;
             }
-            if(!args){
+            if(!args[0]){
                 message.channel.send("Please provide a prefix to change");
                 return;
             }
-            if(prefix === args.join(" ")){
+            if(prefix === args[0].join(" ")){
                 message.channel.send("The prefix is already set to `" + args.join(" ") + "` ! Please choose a new prefix to change");
                 return;
             }
