@@ -264,7 +264,7 @@ client.on("message", message =>{
                 return;
             }
             process.env.prefix = args.join(" ");
-            message.channel.send("Successfully Changed the prefix! \n New Prefix - `" + prefix + "");
+            message.channel.send("Successfully Changed the prefix! \n New Prefix - `" + prefix + "`");
             client.user.setActivity(`${prefix}help`, { type: 'WATCHING' });
         }
     }
