@@ -29,7 +29,6 @@ client.once("ready", () => {
     client.channels.cache.get("738983607661625405").send("**Bot is updated! Getting lastest homework list** :hourglass_flowing_sand:");
     client.channels.cache.get("738983607661625405").send(Homeworks);
     client.user.setActivity(`${prefix}help`, { type: 'WATCHING' });
-
 })
 
 client.on("message", message =>{
