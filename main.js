@@ -259,12 +259,12 @@ client.on("message", message =>{
                 message.channel.send("Please provide a prefix to change");
                 return;
             }
-            if(prefix === args[0].join(" ")){
+            if(prefix === args.join(" ")){
                 message.channel.send("The prefix is already set to `" + args.join(" ") + "` ! Please choose a new prefix to change");
                 return;
             }
             process.env.prefix = args.join(" ");
-            message.channel.send("Successfully Changed the prefix! \n New Prefix - `" + prefix + "`");
+            message.channel.send("Successfully Changed the prefix! \n New Prefix - `" + process.env.prefix + "`");
             client.user.setActivity(`${prefix}help`, { type: 'WATCHING' });
         }
     }
