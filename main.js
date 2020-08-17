@@ -17,17 +17,10 @@ const Help = new Discord.MessageEmbed()
 const Commands = new Discord.MessageEmbed()
 .setColor("#0074ff")
 .setTitle("**Commands List:**")
-.setDescription(`**${prefix}help** \n - Get list of commands \n \n **${prefix}timetable** \n - Get the timetable \n \n **${prefix}homework** \n - Get list of homeworks \n \n **${prefix}urban <things to search>** \n - Search things using urban dicionary \n \n **${prefix}ping** \n - Get the bot latency (ping) \n \n **${prefix}rps** \n - Play Rock Paper Scissors with the bot \n \n **${prefix}lovemeter <@user1> <@user2>** \n - Calculates the love affinity user1 have for user2. \n \n **${prefix}clear <amount to clear>** \n - Clear the lastest message by amount \n \n **${prefix}whois <@user>** \n - Get information about the user`)
-
-const Homeworks = new Discord.MessageEmbed()
-.setColor("#0074ff")
-.setTitle("**Homework:**")
-.setDescription(`**No Homework! \n Yay!!!**`)
+.setDescription(`**Public Commands:** \n \n **${prefix}help** \n - Get list of commands \n \n **${prefix}timetable** \n - Get the timetable \n \n **${prefix}homework** \n - Get list of homeworks \n \n **${prefix}urban <things to search>** \n - Search things using urban dicionary \n \n **${prefix}ping** \n - Get the bot latency (ping) \n \n **${prefix}rps** \n - Play Rock Paper Scissors with the bot \n \n **${prefix}lovemeter <@user1> <@user2>** \n - Calculates the love affinity user1 have for user2. \n \n **${prefix}clear <amount to clear>** \n - Clear the lastest message by amount \n \n **${prefix}whois <@user>** \n - Get information about the user \n \n **Big Only Commands** \n \n **${prefix}killdynasty** \n - Kill Dynasty Bot \n \n **{prefix}revivedynasty** \n - Revive Dynasty Bot \n \n **{prefix}prefix <prefix to change>** \n - Change this Bot Prefix`)
 
 client.once("ready", () => {
     console.log("M2/6 EP Special Bot is online!");
-    client.channels.cache.get("738983607661625405").send("**Bot is updated! Getting lastest homework list** :hourglass_flowing_sand:");
-    client.channels.cache.get("738983607661625405").send(Homeworks);
     client.user.setActivity(`${prefix}help`, { type: 'WATCHING' });
 })
 
@@ -257,6 +250,22 @@ client.on("message", message =>{
             } else {
                 message.channel.send("Dynasty is already killed!");
             }
+        } else if(command === "prefix"){
+            if(!message.author.id === "420875438655537162"){
+                message.channel.send("Only Big can use this command!");
+                return;
+            }
+            if(!args){
+                message.channel.send("Please provide a prefix to change");
+                return;
+            }
+            if(prefix === args.join(" ")){
+                message.channel.send("The prefix is already set to `" + args.join(" ") + "` ! Please choose a new prefix to change");
+                return;
+            }
+            prefix = args.join(" ");
+            message.channel.send("Successfully Changed the prefix! \n New Prefix - `" + prefix + "";
+            client.user.setActivity(`${prefix}help`, { type: 'WATCHING' });
         }
     }
     catch (err) {
