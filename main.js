@@ -228,6 +228,7 @@ client.on("message", message =>{
                     client.channels.cache.get("742740323792584827").send("@everyone **Important!** \n \n " + args.join(" "));
                     client.channels.cache.get("738334434809610332").send("@everyone **Important!** \n \n " + args.join(" "));
                     client.channels.cache.get("738937888934461522").send("@everyone **Important!** \n \n " + args.join(" "));
+                    client.channels.cache.get("738399581758554163").send("@everyone **Important!** \n \n " + args.join(" "));
                     return;
                 }
             }
@@ -239,6 +240,7 @@ client.on("message", message =>{
                 client.channels.cache.get("742740323792584827").send("@everyone **Important!** \n \n " + args.join(" "));
                 client.channels.cache.get("738334434809610332").send("@everyone **Important!** \n \n " + args.join(" "));
                 client.channels.cache.get("738937888934461522").send("@everyone **Important!** \n \n " + args.join(" "));
+                client.channels.cache.get("738399581758554163").send("@everyone **Important!** \n \n " + args.join(" "));
                 return;
             }
         } else if(command === "revivedynasty"){
