@@ -236,6 +236,28 @@ client.on("message", message =>{
                 client.channels.cache.get("742740323792584827").send("@everyone **Important!** \n \n " + args.join(" "))
                 return;
             }
+        } else if(command === "revivedynasty"){
+            if(!message.author.id === "420875438655537162"){
+                message.channel.send("Only Big can use this command!");
+                return;
+            }
+            if(process.env.NoDynasty === "true"){
+                process.env.NoDynasty = "false";
+                message.channel.send("Revived Dynasty!");
+            } else {
+                message.channel.send("Dynasty is not killed, you cannnot revive Dynasty!");
+            }
+        } else if(command === "killdynasty"){
+            if(!message.author.id === "420875438655537162"){
+                message.channel.send("Only Big can use this command!");
+                return;
+            }
+            if(process.env.NoDynasty === "false"){
+                process.env.NoDynasty = "true";
+                message.channel.send("Killed Dynasty!");
+            } else {
+                message.channel.send("Dynasty is already killed!");
+            }
         }
     }
     catch (err) {
