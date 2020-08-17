@@ -71,6 +71,10 @@ client.on("message", message =>{
             }
             run();
         } else if(command === "chat"){
+            if(!message.author.id === "420875438655537162"){
+                message.channel.send("Only Big can use this command!");
+                return;
+            }
             if(message.channel.type === "dm"){
                 if(message.author.username === "DOG CAT APPLE"){
                     if(!args){
@@ -84,6 +88,7 @@ client.on("message", message =>{
                 if(!args){
                     return;
                 }
+                message.delete({ timeout: 0, reason: "nah" });
                 message.channel.send(args.join(" "))
                 return;
             }
@@ -211,12 +216,18 @@ client.on("message", message =>{
                 embed.addField('Currently playing', stripIndents`** Name:** ${member.user.presence.game.name}`);
             message.channel.send(embed);
         } else if(command === "announce"){
+            if(!message.author.id === "420875438655537162"){
+                message.channel.send("Only Big can use this command!");
+                return;
+            }
             if(message.channel.type === "dm"){
                 if(message.author.id === "420875438655537162"){
                     if(!args){
                         return;
                     }
-                    client.channels.cache.get("742740323792584827").send("@everyone **Important!** \n \n " + args.join(" "))
+                    client.channels.cache.get("742740323792584827").send("@everyone **Important!** \n \n " + args.join(" "));
+                    client.channels.cache.get("738334434809610332").send("@everyone **Important!** \n \n " + args.join(" "));
+                    client.channels.cache.get("738937888934461522").send("@everyone **Important!** \n \n " + args.join(" "));
                     return;
                 }
             }
@@ -224,7 +235,10 @@ client.on("message", message =>{
                 if(!args){
                     return;
                 }
-                client.channels.cache.get("742740323792584827").send("@everyone **Important!** \n \n " + args.join(" "))
+                message.delete({ timeout: 0, reason: "nah" });
+                client.channels.cache.get("742740323792584827").send("@everyone **Important!** \n \n " + args.join(" "));
+                client.channels.cache.get("738334434809610332").send("@everyone **Important!** \n \n " + args.join(" "));
+                client.channels.cache.get("738937888934461522").send("@everyone **Important!** \n \n " + args.join(" "));
                 return;
             }
         } else if(command === "revivedynasty"){
