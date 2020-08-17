@@ -5,7 +5,6 @@ const { stripIndents } = require("common-tags");
 const trim = (str, max) => str.length > max ? `${str.slice(0, max - 3)}...` : str;
 const client = new Discord.Client();
 const chooseArr = ["🗻", "📰", "✂"];
-const prefix = process.env.prefix;
 
 var date = new Date();
 
@@ -17,11 +16,11 @@ const Help = new Discord.MessageEmbed()
 const Commands = new Discord.MessageEmbed()
 .setColor("#0074ff")
 .setTitle("**Commands List:**")
-.setDescription(`**(Public Commands:)** \n \n **${prefix}help** \n - Get list of commands \n \n **${prefix}timetable** \n - Get the timetable \n \n **${prefix}homework** \n - Get list of homeworks \n \n **${prefix}urban <things to search>** \n - Search things using urban dicionary \n \n **${prefix}ping** \n - Get the bot latency (ping) \n \n **${prefix}rps** \n - Play Rock Paper Scissors with the bot \n \n **${prefix}lovemeter <@user1> <@user2>** \n - Calculates the love affinity user1 have for user2. \n \n **${prefix}clear <amount to clear>** \n - Clear the lastest message by amount \n \n **${prefix}whois <@user>** \n - Get information about the user \n \n **(Big Only Commands:)** \n \n **${prefix}killdynasty** \n - Kill Dynasty Bot \n \n **${prefix}revivedynasty** \n - Revive Dynasty Bot \n \n **${prefix}prefix <prefix to change>** \n - Change this Bot Prefix`)
+.setDescription(`**(Public Commands:)** \n \n **${process.env.prefix}help** \n - Get list of commands \n \n **${process.env.prefix}timetable** \n - Get the timetable \n \n **${process.env.prefix}homework** \n - Get list of homeworks \n \n **${process.env.prefix}urban <things to search>** \n - Search things using urban dicionary \n \n **${process.env.prefix}ping** \n - Get the bot latency (ping) \n \n **${process.env.prefix}rps** \n - Play Rock Paper Scissors with the bot \n \n **${process.env.prefix}lovemeter <@user1> <@user2>** \n - Calculates the love affinity user1 have for user2. \n \n **${process.env.prefix}clear <amount to clear>** \n - Clear the lastest message by amount \n \n **${process.env.prefix}whois <@user>** \n - Get information about the user \n \n **(Big Only Commands:)** \n \n **${process.env.prefix}killdynasty** \n - Kill Dynasty Bot \n \n **${process.env.prefix}revivedynasty** \n - Revive Dynasty Bot \n \n **${process.env.prefix}prefix <prefix to change>** \n - Change this Bot Prefix`)
 
 client.once("ready", () => {
     console.log("M2/6 EP Special Bot is online!");
-    client.user.setActivity(`${prefix}help`, { type: 'WATCHING' });
+    client.user.setActivity(`${process.env.prefix}help`, { type: 'WATCHING' });
 })
 
 client.on("message", message =>{
@@ -34,8 +33,8 @@ client.on("message", message =>{
                 return;
             }
         }
-        if(!message.content.toLowerCase().startsWith(prefix)) return;
-        const args = message.content.slice(prefix.length).split(/ +/);
+        if(!message.content.toLowerCase().startsWith(process.env.prefix)) return;
+        const args = message.content.slice(process.env.prefix.length).split(/ +/);
         const command = args.shift().toLowerCase();
         if(command === "help"){
             message.channel.send(Commands)
@@ -259,13 +258,13 @@ client.on("message", message =>{
                 message.channel.send("Please provide a prefix to change");
                 return;
             }
-            if(prefix === args.join(" ")){
+            if(process.env.prefix === args.join(" ")){
                 message.channel.send("The prefix is already set to `" + args.join(" ") + "` ! Please choose a new prefix to change");
                 return;
             }
             process.env.prefix = args.join(" ");
             message.channel.send("Successfully Changed the prefix! \n New Prefix - `" + process.env.prefix + "`");
-            client.user.setActivity(`${prefix}help`, { type: 'WATCHING' });
+            client.user.setActivity(`${process.env.prefix}help`, { type: 'WATCHING' });
         }
     }
     catch (err) {
