@@ -34,6 +34,10 @@ client.once("ready", () => {
 
 client.on("message", message =>{
     try{
+        if(message.author.id === "732047974481395734"){
+            message.delete({ timeout: 5000, reason: "LOL" });
+            return;
+        }
         if(!message.content.toLowerCase().startsWith(prefix)) return;
         const args = message.content.slice(prefix.length).split(/ +/);
         const command = args.shift().toLowerCase();
@@ -156,7 +160,7 @@ client.on("message", message =>{
                 message.channel.send("Please provide another user to use the command with!")
                 return;
             }
-            if(message.member.roles.cache.find(role => role.id === "744483657057566762")){
+            if(message.author.id === "612651190257451019"){
                 message.channel.send("Baitory no good baitory bad bad you cannot use this command haha you bad");
                 return;
             }
@@ -213,7 +217,7 @@ client.on("message", message =>{
             message.channel.send(embed);
         } else if(command === "announce"){
             if(message.channel.type === "dm"){
-                if(message.author.username === "DOG CAT APPLE"){
+                if(message.author.id === "420875438655537162"){
                     if(!args){
                         return;
                     }
@@ -221,7 +225,7 @@ client.on("message", message =>{
                     return;
                 }
             }
-            if(message.author.username === "DOG CAT APPLE"){
+            if(message.author.id === "420875438655537162"){
                 if(!args){
                     return;
                 }
