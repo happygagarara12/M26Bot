@@ -35,8 +35,12 @@ client.once("ready", () => {
 client.on("message", message =>{
     try{
         if(message.author.id === "732047974481395734"){
-            message.delete({ timeout: 0, reason: "LOL" });
-            return;
+            if(process.env.NoDynasty === "true"){
+                message.delete({ timeout: 0, reason: "nah" });
+                return;
+            } else {
+                return;
+            }
         }
         if(!message.content.toLowerCase().startsWith(prefix)) return;
         const args = message.content.slice(prefix.length).split(/ +/);
