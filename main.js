@@ -43,12 +43,12 @@ client.on("message", message =>{
                 message.channel.send("Only Big can use this command!");
                 return;
             }
-            client.channels.cache.get("742740323792584827").send("**Chapter 3:**");
-            client.channels.cache.get("742740323792584827").send({
+            client.channels.cache.get("756859432893284403").send("**Chapter 3:**");
+            client.channels.cache.get("756859432893284403").send({
                 files: ["./storage/Chapter 3.pdf"]
             });
-            client.channels.cache.get("742740323792584827").send("**Chapter 3:**");
-            client.channels.cache.get("742740323792584827").send({
+            client.channels.cache.get("756859432893284403").send("**Chapter 4:**");
+            client.channels.cache.get("756859432893284403").send({
                 files: ["./storage/Chapter 4.pdf"]
             });
         } else if(command === "urban"){
