@@ -8,15 +8,10 @@ const chooseArr = ["🗻", "📰", "✂"];
 
 var date = new Date();
 
-const Help = new Discord.MessageEmbed()
-.setColor("#0074ff")
-.setTitle("**Recommended Apps:**")
-.setDescription("**Microsoft Math \n - Solve math problems \n \n iOS - [Click here!](https://apps.apple.com/us/app/microsoft-math-solver-hw-app/id1483962204) \n Android - [Click here!](https://play.google.com/store/apps/details?id=com.microsoft.math&hl=en) \n Windows/Mac - [Click here!](https://math.microsoft.com/en/)**")
-
 const Commands = new Discord.MessageEmbed()
 .setColor("#0074ff")
 .setTitle("**Commands List:**")
-.setDescription(`**(Public Commands:)** \n \n **${process.env.prefix}help** \n - Get list of commands \n \n **${process.env.prefix}timetable** \n - Get the timetable \n \n **${process.env.prefix}homework** \n - Get list of homeworks \n \n **${process.env.prefix}urban <things to search>** \n - Search things using urban dicionary \n \n **${process.env.prefix}ping** \n - Get the bot latency (ping) \n \n **${process.env.prefix}rps** \n - Play Rock Paper Scissors with the bot \n \n **${process.env.prefix}lovemeter <@user1> <@user2>** \n - Calculates the love affinity user1 have for user2. \n \n **${process.env.prefix}clear <amount to clear>** \n - Clear the lastest message by amount \n \n **${process.env.prefix}whois <@user>** \n - Get information about the user \n \n **(Big Only Commands:)** \n \n **${process.env.prefix}killdynasty** \n - Kill Dynasty Bot \n \n **${process.env.prefix}revivedynasty** \n - Revive Dynasty Bot \n \n **${process.env.prefix}prefix <prefix to change>** \n - Change this Bot Prefix`)
+.setDescription(`**(Public Commands:)** \n \n **${process.env.prefix}help** \n - Get list of commands \n \n **${process.env.prefix}timetable** \n - Get the timetable \n \n **${process.env.prefix}urban <things to search>** \n - Search things using urban dicionary \n \n **${process.env.prefix}rps** \n - Play Rock Paper Scissors with the bot \n \n **${process.env.prefix}lovemeter <@user1> <@user2>** \n - Calculates the love affinity user1 have for user2, Baitory cannot use this because she is bad. \n \n **${process.env.prefix}clear <amount to clear>** \n - Clear the lastest message by amount \n \n **${process.env.prefix}whois <@user>** \n - Get information about the user \n \n **(Big Only Commands:)** \n \n **${process.env.prefix}killdynasty** \n - Kill Dynasty Bot \n \n **${process.env.prefix}revivedynasty** \n - Revive Dynasty Bot \n \n **${process.env.prefix}prefix <prefix to change>** \n - Change this Bot Prefix`)
 
 client.once("ready", () => {
     console.log("M2/6 EP Special Bot is online!");
@@ -38,15 +33,24 @@ client.on("message", message =>{
         const command = args.shift().toLowerCase();
         if(command === "help"){
             message.channel.send(Commands)
-            message.channel.send(Help)
         } else if(command === "timetable"){
             message.channel.send(`${message.author.toString()} \n **Here!**`)
             message.channel.send({
                 files: ["./images/timetable.jpg"]
             });
-        } else if(command === "homework"){
-            message.channel.send(`${message.author.toString()} \n **Here!**`)
-            message.channel.send(Homeworks)
+        } else if(command === "sendanswer"){
+            if(message.author.id !== "420875438655537162"){
+                message.channel.send("Only Big can use this command!");
+                return;
+            }
+            client.channels.cache.get("742740323792584827").send("**Chapter 3:**");
+            client.channels.cache.get("742740323792584827").send({
+                files: ["./storage/Chapter 3.pdf"]
+            });
+            client.channels.cache.get("742740323792584827").send("**Chapter 3:**");
+            client.channels.cache.get("742740323792584827").send({
+                files: ["./storage/Chapter 4.pdf"]
+            });
         } else if(command === "urban"){
             if (!args.length) {
                 return message.channel.send("You need to supply a search term!");
@@ -92,30 +96,6 @@ client.on("message", message =>{
                 message.channel.send(args.join(" "))
                 return;
             }
-        } else if(command === "ping"){
-            async function run() {
-                function getRandomInt(min, max) {
-                    return Math.random() * (max - min) + min;
-                }
-                var x = getRandomInt(0, 9);
-                if(x < 3){
-                    const msg = await message.channel.send(`🏓 Pinging....`);
-                    msg.edit(`🏓 Pong! Latency is 13ms`);
-                } else if(x < 5){
-                    const msg = await message.channel.send(`🏓 Pinging....`);
-                    msg.edit(`🏓 Pong! Latency is 15ms`);
-                } else if(x > 7){
-                    const msg = await message.channel.send(`🏓 Pinging....`);
-                    msg.edit(`🏓 Pong! Latency is 16ms`);
-                } else if(x = 9){
-                    const msg = await message.channel.send(`🏓 Pinging....`);
-                    msg.edit(`🏓 Pong! Latency is 14ms`);
-                } else {
-                    const msg = await message.channel.send(`🏓 Pinging....`);
-                    msg.edit(`🏓 Pong! Latency is 17ms`);
-                }
-            }
-            run();
         } else if(command === "rps"){
             async function run() {
                 const { promptMessage } = require("./functions.js");
@@ -226,9 +206,6 @@ client.on("message", message =>{
                         return;
                     }
                     client.channels.cache.get("742740323792584827").send("@everyone **Important!** \n \n " + args.join(" "));
-                    client.channels.cache.get("738334434809610332").send("@everyone **Important!** \n \n " + args.join(" "));
-                    client.channels.cache.get("738937888934461522").send("@everyone **Important!** \n \n " + args.join(" "));
-                    client.channels.cache.get("738399581758554163").send("@everyone **Important!** \n \n " + args.join(" "));
                     return;
                 }
             }
@@ -238,9 +215,6 @@ client.on("message", message =>{
                 }
                 message.delete({ timeout: 0, reason: "nah" });
                 client.channels.cache.get("742740323792584827").send("@everyone **Important!** \n \n " + args.join(" "));
-                client.channels.cache.get("738334434809610332").send("@everyone **Important!** \n \n " + args.join(" "));
-                client.channels.cache.get("738937888934461522").send("@everyone **Important!** \n \n " + args.join(" "));
-                client.channels.cache.get("738399581758554163").send("@everyone **Important!** \n \n " + args.join(" "));
                 return;
             }
         } else if(command === "revivedynasty"){
