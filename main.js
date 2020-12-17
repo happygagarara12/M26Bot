@@ -141,7 +141,7 @@ client.on("message", message =>{
                 return;
             }
             if(message.author.id === "612651190257451019"){
-                message.channel.send("Baitory no good baitory bad bad you cannot use this command haha you bad");
+                message.channel.send("Baitoey bad");
                 return;
             }
             const love = Math.random() * 100;
