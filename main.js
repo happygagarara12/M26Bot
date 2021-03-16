@@ -263,4 +263,4 @@ client.on("message", message =>{
     }
 });
 
-client.login(process.env.M26EPBotTOKEN);
+client.login(process.env.TOKEN);
